@@ -6,7 +6,7 @@ const App = ({ todos }) => {
     return (
         <Fragment>
             <h1>Todo App</h1>
-            <Todos todos={[ {title: "title", description: "description"} ]} />
+            <Todos todos={todos} />
         </Fragment>
     )
 }
