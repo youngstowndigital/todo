@@ -25,7 +25,7 @@ const Todos = ({ todos, addTodo }) => {
                 <input type="submit" />
             </form>
             {
-                todos.map((todo, index) => <Todo key={index} todo={todo} />)
+                todos.map((todo, index) => <Todo key={index} todo={todo} todoIndex={index} />)
             }
         </div>
     );
