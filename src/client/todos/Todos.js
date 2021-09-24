@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -30,25 +31,24 @@ const Todos = ({ todos, addTodo }) => {
                         type="text" 
                         id="title" 
                         value={todo.title}
+                        required
                     />
                 </InputGroup>
                 <InputGroup>
                     <InputGroup.Text>Description</InputGroup.Text>
-                    <FormControl as="textarea" aria-label="With textarea" onChange={onChange} id="description" value={todo.description} />
+                    <FormControl as="textarea" aria-label="With textarea" onChange={onChange} id="description" value={todo.description} required />
                 </InputGroup>
                 <br />
                 <Button variant="primary" type="submit">
-                    Submit
+                    Create Todo
                 </Button>
             </form>
-            <h2>Todo</h2>
+            <br />
+            <Row>
             {
-                todos.filter(todo => !todo.complete).map((todo, index) => <Todo key={index} todo={todo} todoIndex={index} />)
+                todos.map((todo, index) => <Todo key={index} todo={todo} todoIndex={index} />)
             }
-            <h2>Complete</h2>
-            {
-                todos.filter(todo => todo.complete).map((todo, index) => <Todo key={index} todo={todo} todoIndex={index} />)
-            }
+            </Row>
         </div>
     );
 }
