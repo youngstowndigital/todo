@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
 import Todo from './Todo';
 import { addTodoAction } from '../actions/todos';
 
@@ -16,13 +19,27 @@ const Todos = ({ todos, addTodo }) => {
 
     return (
         <div>
-            <h1>Todo List</h1>
             <form onSubmit={onSubmit}>
-                <label>Title</label><br />
-                <input onChange={onChange} type="text" id="title" value={todo.title} /><br />
-                <label>Description</label><br />
-                <textarea onChange={onChange} id="description" value={todo.description}></textarea><br />
-                <input type="submit" />
+                <InputGroup className="mb-3">
+                    <InputGroup.Text id="basic-addon1">Title</InputGroup.Text>
+                    <FormControl
+                        placeholder="Title"
+                        aria-label="Title"
+                        aria-describedby="basic-addon1"
+                        onChange={onChange} 
+                        type="text" 
+                        id="title" 
+                        value={todo.title}
+                    />
+                </InputGroup>
+                <InputGroup>
+                    <InputGroup.Text>Description</InputGroup.Text>
+                    <FormControl as="textarea" aria-label="With textarea" onChange={onChange} id="description" value={todo.description} />
+                </InputGroup>
+                <br />
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
             </form>
             <h2>Todo</h2>
             {
