@@ -1,5 +1,8 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from '../actions/actionTypes';
-const initialState = [{ title: 'title', description: 'description', complete: false }];
+const initialState = [
+    { title: 'title', description: 'description', complete: false },
+    { title: 'title', description: 'description', complete: false }
+];
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
