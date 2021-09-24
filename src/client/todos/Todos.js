@@ -24,8 +24,13 @@ const Todos = ({ todos, addTodo }) => {
                 <textarea onChange={onChange} id="description" value={todo.description}></textarea><br />
                 <input type="submit" />
             </form>
+            <h2>Todo</h2>
             {
-                todos.map((todo, index) => <Todo key={index} todo={todo} todoIndex={index} />)
+                todos.filter(todo => !todo.complete).map((todo, index) => <Todo key={index} todo={todo} todoIndex={index} />)
+            }
+            <h2>Complete</h2>
+            {
+                todos.filter(todo => todo.complete).map((todo, index) => <Todo key={index} todo={todo} todoIndex={index} />)
             }
         </div>
     );
